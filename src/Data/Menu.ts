@@ -24,7 +24,7 @@ const Menu: MenuItem[] = [
         category: BREAKFAST_ID,
         description: "none",
         ingredients: ["سوسیس روده‌ای", "پوره سیب زمینی", "تخم مرغ نیمرو", "نان تهیه شده در آشپزخانه باگرو"],
-        images: ["/branch1.jpg", "pancake.jpg"]
+        images: ["/Branch1.jpg", "/pancake.jpg"]
     },
     {
         id: 2,

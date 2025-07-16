@@ -12,7 +12,7 @@ const LogoOverlay = () => {
 
   const scale = useTransform(scrollY, [0, SCROLL_THRESHOLD], [4, 0.8]);
   const y = useTransform(scrollY, [0, SCROLL_THRESHOLD], ["0vh", "-40vh"]);
-  const x = useTransform(scrollY, [0, SCROLL_THRESHOLD], ["0vw", "-30vw"]);
+  const x = useTransform(scrollY, [0, SCROLL_THRESHOLD], ["0vw", "-27vw"]);
   const opacity = useTransform(scrollY, [0, 0.1, SCROLL_THRESHOLD], [1, 0.9, 0]);
 
   return (

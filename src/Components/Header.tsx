@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 w-full z-40 flex items-center justify-between px-[5%] bg-[var(--header-color)] backdrop-blur-md h-[80px]"
+      className="fixed top-0 left-0 w-full z-40 flex items-center justify-between px-[3%] bg-[var(--header-color)] backdrop-blur-md h-[80px]"
       style={{ opacity, pointerEvents }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
