@@ -10,9 +10,6 @@ import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 const Home = () => {
     const [selectedId, setSelectedId] = useState<number | null>(null);
     const SCROLL_THRESHOLD = 200;
-    const findItemById = (id: number) => {
-        return Menu.find(item => item.id === id);
-    }
     const { scrollY } = useScroll();
 
     const opacity = useTransform(scrollY, [0, SCROLL_THRESHOLD], [0, 1]);
