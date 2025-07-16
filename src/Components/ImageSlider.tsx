@@ -2,12 +2,11 @@ import { motion } from "framer-motion";
 import React, { useState } from "react";
 import Image from "next/image";
 import { FaCircleArrowLeft, FaCircleArrowRight } from "react-icons/fa6";
-import { image } from "framer-motion/client";
 import clsx from "clsx";
 
 export type imageSlider = {
     src: string[],
-    children: any,
+    children: React.ReactNode,
     itemName: string
 } 
 

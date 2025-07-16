@@ -1,5 +1,4 @@
 "use client"
-import Image from "next/image";
 import { ItemCard, ItemCardOpen } from "@/Components/ItemCard";
 import { categories } from "@/Data/Menu";
 import Menu from "@/Data/Menu";
