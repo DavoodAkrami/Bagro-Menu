@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Head from "next/head";
+import Header from "@/Components/Header";
+import LogoOverlay from "@/Components/LogoOverlay";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,9 +27,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+      </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <LogoOverlay />
+        <Header />
         {children}
       </body>
     </html>
