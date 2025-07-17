@@ -10,11 +10,12 @@
   --subtext: #BFBAB0;
   --white: #FFFFFF;
   --white-bg: rgba(250, 250, 250, 0.7);
-  --active: #EADAC0;
+  --active: #ddb679;
   --card: #c9c3ae;
   --card-glassy: #c9c3ae9a;
   --header: rgba(250, 250, 250, 0.6);
   --disable: rgba(250, 250, 250, 0.2);
+  --error: #FF0000;
 }
 
 @theme inline {
@@ -34,6 +35,7 @@
   --header-color: var(--header);
   --white-bg-color: var(--white-bg);
   --disable-color: var(--disable);
+  --error-color: var(--error);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -41,6 +43,10 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
