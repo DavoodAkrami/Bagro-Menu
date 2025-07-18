@@ -42,16 +42,6 @@ const ItemCard: React.FC<ItemCardProps> = ({item, onSelect}) => {
             </div>
         </motion.div>
     )
-
-    // return (
-    //     <motion.div
-    //         layoutId={`card-${item.id}`}
-    //         onClick={() => onSelect?.(item.id)}
-    //         dir="rtl" 
-    //     >
-            
-    //     </motion.div>
-    // )
 }
 
 

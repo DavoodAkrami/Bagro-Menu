@@ -1,3 +1,15 @@
+export type MenuItem = {
+    id: number;
+    name: string;
+    price: number | string | null;
+    category: string;
+    description: string;
+    ingredients: string[];
+    images: string[];
+    isNewItem: boolean;
+    isSpicy: boolean;
+};
+
 const BREAKFAST_ID: string = "breakfast";
 const CAT_BREAKFAST: string = "Breakfast";
 const CAT_BREAKFAST_EXP: string = "8:30 am - 12 pm";
