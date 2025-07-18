@@ -36,7 +36,7 @@ const AdminPanel = () => {
             const fileName = `${Date.now()}-${i}.${fileExt}`;
             const filePath = `${fileName}`;
 
-            const { data, error } = await supabase.storage
+            const { error } = await supabase.storage
                 .from("bagro-images")
                 .upload(filePath, file);
 
@@ -121,10 +121,6 @@ const AdminPanel = () => {
         setEditId(item.id);
         setIsModalOpen(true);
     };
-
-    const handleDeleteModal = () => {
-        setIsModalOpen(true);
-    }
 
     return (
         <div>
