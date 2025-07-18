@@ -1,6 +1,6 @@
 "use client"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { categories } from "@/Data/Menu";
+import { categories } from "@/Data/Categories";
 import { usePathname } from "next/navigation";
 
 const SCROLL_THRESHOLD = 200;

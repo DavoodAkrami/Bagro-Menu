@@ -1,6 +1,6 @@
 "use client"
 import { ItemCard, ItemCardOpen } from "@/Components/ItemCard";
-import { categories } from "@/Data/Menu";
+import { categories } from "@/Data/Categories";
 import { useState } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import { useMenu } from "@/contexts/MenuContext";

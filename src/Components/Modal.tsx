@@ -1,5 +1,4 @@
 "use client"
-
 import React from "react";
 
 type ModalProps = {
@@ -12,8 +11,14 @@ type ModalProps = {
 const Modal: React.FC<ModalProps> = ({ open, children, onSubmit, onClose }) => {
     if (!open) return null;
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/60 bg-opacity-40">
-            <div className="bg-white p-4 rounded-[20px] shadow max-w-full w-[95vw] sm:w-[400px] relative">
+        <div 
+            onClick={onClose}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-[5px] transition-[backdrop-filter] duration-300 ease-in-out"
+        >
+            <div 
+                onClick={e => e.stopPropagation()}
+                className="bg-[var(--card-color)] p-4 rounded-[20px] shadow w-[95vw] max-h-[90vh] max-w-[40%] relative overflow-scroll max-[1100px]:max-w-[90%]" 
+            >
                 <button className="absolute top-1 right-5 text-gray-500 text-[3rem] cursor-pointer" onClick={onClose}>×</button>
                 <form onSubmit={e => { e.preventDefault(); onSubmit(); }}>
                     {children}

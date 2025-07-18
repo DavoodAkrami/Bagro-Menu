@@ -1,7 +1,7 @@
 "use client"
 import React, { createContext, useState, useEffect, useContext, Children} from "react";
 import { supabase } from "@/utils/supabaseClient"; 
-import Menu from "@/Data/Menu";
+import Menu from "@/Data/Categories";
 
 
 export type MenuItem = {

@@ -1,10 +1,9 @@
 "use client"
-import { MenuItem } from '../Data/Menu';
+import { MenuItem } from '../Data/Categories';
 import { motion } from 'framer-motion';
 import React from 'react';
 import ImageSlider from './ImageSlider';
 import { FaFireFlameCurved } from "react-icons/fa6";
-import { span } from 'framer-motion/client';
 
 
 type ItemCardProps = {
