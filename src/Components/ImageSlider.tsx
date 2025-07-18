@@ -36,7 +36,7 @@ const ImageSlider: React.FC<imageSlider> = ({src, itemName, children}) => {
             <div className="w-[400px] h-[400px] flex items-center justify-center overflow-hidden rounded-[50px] shadow relative bg-[var(--white-color)] max-[400px]:w-[350px] max-[400px]:h-[350px] max-[350px]:w-[300px] max-[350px]:h-[300px]">
                 {src.length > 0 ? (
                     src.map((img, index) => (
-                        <Image 
+                        <img 
                             src={img}
                             key={index}
                             height={350}
@@ -65,9 +65,9 @@ const ImageSlider: React.FC<imageSlider> = ({src, itemName, children}) => {
                     <motion.div
                         initial={{ y: 500 }}
                         animate={{ y: 0 }}
-                        exit={{ y: 500 }}
+                        exit={{ y: 500, transition: { duration: 0.5, delay: 0.05 }}}
                         dir="rtl"
-                        transition={{ duration:0.4, delay: 0}}
+                        transition={{ duration:0.5, delay: -0.12}}
                         className="bg-[var(--white-bg-color)] absolute h-[40%] px-[5%] py-[5%] bottom-0 w-[100%]"
                     >
                         <div>

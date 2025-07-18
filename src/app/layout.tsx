@@ -4,6 +4,7 @@ import "./globals.css";
 import Head from "next/head";
 import Header from "@/Components/Header";
 import LogoOverlay from "@/Components/LogoOverlay";
+import { MenuProvider } from "@/contexts/MenuContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,9 +34,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <LogoOverlay />
-        <Header />
-        {children}
+        <MenuProvider>
+          <LogoOverlay />
+          <Header />
+          {children}
+        </MenuProvider>
       </body>
     </html>
   );

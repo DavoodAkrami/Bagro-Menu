@@ -3,7 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --primary: #F5F3EF;
+  --primary: #c9c3ae;
   --secondary: #D8B892;
   --brand: #C9A04D;
   --text: #4c4c4c;
@@ -11,11 +11,12 @@
   --white: #FFFFFF;
   --white-bg: rgba(250, 250, 250, 0.7);
   --active: #ddb679;
-  --card: #c9c3ae;
-  --card-glassy: #c9c3ae9a;
+  --card: #F5F3EF;
+  --card-glassy: rgba(250, 250, 250, 0.6);
   --header: rgba(250, 250, 250, 0.6);
   --disable: rgba(250, 250, 250, 0.2);
   --error: #FF0000;
+  --table-bg: #c9a04d5c;
 }
 
 @theme inline {
@@ -36,6 +37,7 @@
   --white-bg-color: var(--white-bg);
   --disable-color: var(--disable);
   --error-color: var(--error);
+  --table-bg-color: var(--table-bg);
 }
 
 @media (prefers-color-scheme: dark) {
