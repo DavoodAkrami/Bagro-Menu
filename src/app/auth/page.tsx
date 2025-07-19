@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react"
 import { useRouter } from "next/navigation";
+import { FaArrowLeft } from "react-icons/fa";
 
 const Auth = () => {
     const router = useRouter();
@@ -24,7 +25,16 @@ const Auth = () => {
 
 
     return (
-        <div className="flex justify-center items-center min-h-screen bg-[var(--background-color)] px-4">
+        <div className="flex justify-center items-center min-h-screen bg-[var(--background-color)] px-4 relative">
+            <button
+                type="button"
+                aria-label="Go back to home"
+                onClick={() => router.push("/")}
+                className="absolute top-4 left-4 flex items-center gap-2 px-3 py-2 rounded-lg bg-[var(--table-bg-color)] border border-[var(--brand-color)] text-[var(--brand-color)] hover:bg-[var(--secondary-color)] hover:text-[var(--text-color)] shadow transition-all focus:outline-none focus:ring-2 focus:ring-[var(--brand-color)] text-base sm:text-lg z-10"
+            >
+                <FaArrowLeft className="text-lg sm:text-xl" />
+                <span className="hidden sm:inline font-medium">Back</span>
+            </button>
             <form 
                 onSubmit={handleSubmit}
                 className="flex flex-col gap-8 sm:gap-10 bg-[var(--card-color)] w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-md xl:max-w-lg 2xl:max-w-xl p-6 sm:p-10 md:p-12 justify-center items-center rounded-2xl shadow-lg"

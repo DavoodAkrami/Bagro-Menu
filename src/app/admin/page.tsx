@@ -7,6 +7,7 @@ import { FaSpinner, FaTrash } from "react-icons/fa";
 import { categories } from "@/Data/Categories";
 import 'react-loading-skeleton/dist/skeleton.css';
 import { useRouter } from "next/navigation";
+import { FaArrowLeft } from "react-icons/fa";
 
 
 const AdminPanel = () => {
@@ -145,6 +146,15 @@ const AdminPanel = () => {
                 </div>
             ) : isAuth ? (
                 <div className="flex flex-col justify-center items-center pt-[10vh]">
+                    <button
+                        type="button"
+                        aria-label="Go back to home"
+                        onClick={() => router.push("/")}
+                        className="absolute top-4 left-4 flex items-center gap-2 px-3 py-2 rounded-lg bg-[var(--table-bg-color)] border border-[var(--brand-color)] text-[var(--brand-color)] hover:bg-[var(--secondary-color)] hover:text-[var(--text-color)] shadow transition-all focus:outline-none focus:ring-2 focus:ring-[var(--brand-color)] text-base sm:text-lg z-10"
+                    >
+                        <FaArrowLeft className="text-lg sm:text-xl" />
+                        <span className="hidden sm:inline font-medium">Back</span>
+                    </button>
                     <h1 className="text-[3rem] font-[650] text-[var(--text-color)] mb-[5vh]">Admin panel</h1>
                     <div>
                         <button 
@@ -175,7 +185,7 @@ const AdminPanel = () => {
                                         >
                                             {deletingLoadingId === item.id ? 
                                                 <>
-                                                    <FaSpinner className="animate-spin text-xl mr-2" />
+                                                    <FaSpinner className="animate-spin text-xl mr-2 text-center" />
                                                 </> :
                                                 <>
                                                 Delete  
@@ -298,7 +308,7 @@ const AdminPanel = () => {
                             <button className="mb-[5vh] py-[0.8rem] px-[1.8rem] bg-[var(--table-bg-color)] border-[2px] border-[var(--brand-color)] rounded-[12px] text-[var(--text-color)] font-[570] cursor-pointer hover:bg-[var(--secondary-color)]">
                                 {submitLoading ?
                                     <>
-                                        <FaSpinner className="animate-spin text-xl mr-2" />
+                                        <FaSpinner className="animate-spin text-xl mr-2 text-center" />
                                     </> : editId ? "Save" : "Add"
                                 }
                             </button>

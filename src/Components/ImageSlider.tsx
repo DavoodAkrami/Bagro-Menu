@@ -54,10 +54,12 @@ const ImageSlider: React.FC<imageSlider> = ({src, itemName, children}) => {
                     <div>no image</div>
                 )}
                 <FaCircleArrowRight
-                    onClick={slide < src.length - 1 ? handleNext : undefined}
+                    onClick={src.length === 0 || slide >= src.length - 1 ? undefined : handleNext}
                     className={clsx(
                         "absolute right-2 top-1/2 -translate-y-1/2 text-[2rem] cursor-pointer z-20",
-                        slide === src.length - 1 ? "text-[var(--disable-color)] pointer-events-none" : "text-[var(--white-bg-color)]"
+                        (src.length === 0 || slide >= src.length - 1)
+                            ? "text-[var(--disable-color)] pointer-events-none"
+                            : "text-[var(--white-bg-color)]"
                     )}
                 />
                 {children && (
