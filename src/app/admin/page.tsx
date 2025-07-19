@@ -64,32 +64,32 @@ const AdminPanel = () => {
     const handlesubmit = async () => {
         setSubmitLoading(true);
         if (editId === null) {
-            const { error } = await supabase.from('menu').insert([
-                {
-                    ...form,
-                    price: Number(form.price),
-                    ingredients: form.ingredients.split(",").map(s => s.trim()),
+    const { error } = await supabase.from('menu').insert([
+      {
+        ...form,
+        price: Number(form.price),
+        ingredients: form.ingredients.split(",").map(s => s.trim()),
                     images: form.images
-                }
-            ]);
-            if (!error) {
+      }
+    ]);
+    if (!error) {
                 setIsModalOpen(false);
                 setSubmitLoading(false);
-                refresh();
-            }
+      refresh();
+    }
         } else {
             setSubmitLoading(true);
-            const { error } = await supabase.from('menu').update({
+    const { error } = await supabase.from('menu').update({
                 ...form,
                 price: Number(form.price),
                 ingredients: form.ingredients.split(",").map(s => s.trim()),
                 images: form.images
-            }).eq('id', editId);
-            if (!error) {
+    }).eq('id', editId);
+    if (!error) {
                 setIsModalOpen(false);
-                setEditId(null);
+      setEditId(null);
                 setSubmitLoading(false);
-                refresh();
+      refresh();
             }
         }
     };
@@ -97,8 +97,8 @@ const AdminPanel = () => {
     const handleDelete = async (id: number) => {
         setDeletingLoadingID(id);
         const { error } = await supabase.from('menu').delete().eq('id', id);
-        if (!error) {
-            refresh();
+    if (!error) {
+      refresh();
             setDeletingLoadingID(null);
         }
     };
@@ -139,21 +139,21 @@ const AdminPanel = () => {
                             Add Item
                         </button>
                     </div>
-                    <table border={1} className="w-[90%] mx-auto border-[2px] border-[var(--brand-color)] bg-[var(--table-bg-color)] text-[var(--text-color)] rounded-[12px] overflow-hidden">
+                    <table border={1} className="w-[90%] max-[700px]:w-[98%] mx-auto border-[2px] border-[var(--brand-color)] bg-[var(--table-bg-color)] text-[var(--text-color)] rounded-[12px] overflow-hidden">
                         {menu.map((item) => (
                             <tbody key={item.id}>
                                 <tr className="border border-[var(--brand-color)]">
-                                    <th className="py-4 border border-[var(--brand-color)]">{item.name}</th>
-                                    <th className="py-4 border border-[var(--brand-color)]">{item.category}</th>
-                                    <th className="py-4 border border-[var(--brand-color)]">
+                                    <th className="py-4 max-[700px]:py-2 max-[700px]:text-[0.8rem] border border-[var(--brand-color)] max-[700px]:w-[30%]">{item.name}</th>
+                                    <th className="py-4 max-[700px]:py-2 border max-[700px]:text-[0.8rem] border-[var(--brand-color)]">{item.category}</th>
+                                    <th className="py-4 max-[700px]:py-2 border max-[700px]:text-[0.8rem]  border-[var(--brand-color)]">
                                         <button 
-                                            className="py-[0.6rem] px-[1.2rem] bg-[var(--table-bg-color)] rounded-[12px] border border-[var(--brand-color)] cursor-pointer hover:bg-[var(--secondary-color)]"
+                                            className="max-[700px]:py-[0.4rem] max-[700px]:px-[1rem] py-[0.6rem] px-[1.2rem] bg-[var(--table-bg-color)] rounded-[12px] border border-[var(--brand-color)] cursor-pointer hover:bg-[var(--secondary-color)]"
                                             onClick={() => openEditModal(item)}
                                         >
                                             Edit
                                         </button>
                                     </th>
-                                    <th className="py-4 border border-[var(--brand-color)]">
+                                    <th className="py-4 max-[700px]:py-2 border max-[700px]:text-[0.8rem] border-[var(--brand-color)]">
                                         <button
                                             className="py-[0.6rem] px-[1.2rem] bg-[var(--table-bg-color)] rounded-[12px] border border-[var(--brand-color)] cursor-pointer hover:bg-[var(--secondary-color)]"
                                             onClick={() => handleDelete(item.id)}

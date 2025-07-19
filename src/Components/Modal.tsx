@@ -17,7 +17,7 @@ const Modal: React.FC<ModalProps> = ({ open, children, onSubmit, onClose }) => {
         >
             <div 
                 onClick={e => e.stopPropagation()}
-                className="bg-[var(--card-color)] p-4 rounded-[20px] shadow w-[95vw] max-h-[90vh] max-w-[40%] relative overflow-scroll max-[1100px]:max-w-[90%]" 
+                className="bg-[var(--card-color)] p-4 rounded-[20px] shadow w-[95vw] max-h-[90vh] max-w-[40%] relative overflow-y-scroll overflow-x-hidden max-[1100px]:max-w-[90%]" 
             >
                 <button className="absolute top-1 right-5 text-gray-500 text-[3rem] cursor-pointer" onClick={onClose}>×</button>
                 <form onSubmit={e => { e.preventDefault(); onSubmit(); }}>

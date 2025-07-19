@@ -40,7 +40,7 @@ export const MenuProvider: React.FC<{ children: React.ReactNode}> = ({ children 
     const fetchMenu = async () => {
         setLoading(true);
         setError(null);
-        const { data, error } = await supabase.from('menu').select('*').order('id');
+        const { data, error } = await supabase.from('menu').select('*').order('category');
         if (error) setError(error.message);
         else setMenu(data as MenuItem[]);
         setLoading(false);
