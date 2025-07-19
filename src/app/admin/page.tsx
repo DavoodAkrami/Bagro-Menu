@@ -1,11 +1,12 @@
 "use client";
 import { MenuItem, useMenu } from "@/contexts/MenuContext";
 import { supabase } from "@/utils/supabaseClient";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modal from "@/Components/Modal";
 import { FaSpinner, FaTrash } from "react-icons/fa";
 import { categories } from "@/Data/Categories";
 import 'react-loading-skeleton/dist/skeleton.css';
+import { useRouter } from "next/navigation";
 
 
 const AdminPanel = () => {
@@ -25,6 +26,7 @@ const AdminPanel = () => {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const [submitLoading, setSubmitLoading] = useState<boolean>(false);
     const [deletingLoadingId, setDeletingLoadingID] = useState<number | null>(null);
+    const [isAuth, setIsAuth] = useState<boolean | null>(null);
 
     const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const files = e.target.files;
@@ -122,13 +124,26 @@ const AdminPanel = () => {
         setIsModalOpen(true);
     };
 
+    const router = useRouter();
+
+    useEffect(() => {
+            setIsAuth(localStorage.getItem("isAuthenticated") === "true");
+    }, []);
+
+    useEffect(() => {
+        if (isAuth === false) {
+          router.push("/auth");
+        }
+      }, [isAuth, router]);
+
+
     return (
         <div>
             {tableLoading ? (
                 <div className=" flex items-center justify-center min-h-screen">
                     <FaSpinner className="animate-spin mr-2 text-[20rem] max-md:text-[12rem]" />
                 </div>
-            ) : (
+            ) : isAuth ? (
                 <div className="flex flex-col justify-center items-center pt-[10vh]">
                     <h1 className="text-[3rem] font-[650] text-[var(--text-color)] mb-[5vh]">Admin panel</h1>
                     <div>
@@ -172,6 +187,10 @@ const AdminPanel = () => {
                             </tbody>
                         ))}
                     </table>
+                </div>
+            ) : (
+                <div>
+                    You are not authenticated
                 </div>
             )}
             {isModalOpen &&

@@ -5,6 +5,7 @@ import Head from "next/head";
 import Header from "@/Components/Header";
 import LogoOverlay from "@/Components/LogoOverlay";
 import { MenuProvider } from "@/contexts/MenuContext";
+import Footer from "@/Components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({
           <LogoOverlay />
           <Header />
           {children}
+          <Footer />
         </MenuProvider>
       </body>
     </html>
