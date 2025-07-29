@@ -81,4 +81,36 @@ const ImageSlider: React.FC<imageSlider> = ({src, itemName, children}) => {
     )
 }
 
-export default ImageSlider;
+const LandingImageSlider:  React.FC<imageSlider> = ({src, itemName, children}) => {
+
+    return (
+        <div 
+            className="relative w-full max-w-[95%] mx-auto flex items-center justify-center"
+            style={{ minHeight: 220 }}
+        >
+            <div className="w-[400px] h-[400px] flex items-center justify-center overflow-hidden rounded-[50px] shadow relative bg-[var(--white-color)] max-[400px]:w-[350px] max-[400px]:h-[350px] max-[350px]:w-[300px] max-[350px]:h-[300px]">
+                {src.length > 0 ? (
+                    src.map((img, index) => (
+                        <img 
+                            src={img}
+                            key={index}
+                            height={350}
+                            width={350}
+                            alt={itemName}
+                            className="object-cover absolute top-0 left-0 w-full h-full transition-opacity duration-300"
+                        />
+                    ))
+                ) : (
+                    <div>no image</div>
+                )}
+                {children && (
+                        <div className="absolute top-0 right-0 w-[100%] py-[6%] px-[5%]" dir="rtl">
+                            {children}
+                        </div>
+                )}
+            </div>
+        </div>
+    )
+}
+
+export{ImageSlider, LandingImageSlider};
