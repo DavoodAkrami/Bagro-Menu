@@ -32,7 +32,7 @@ const ImageSlider: React.FC<imageSlider> = ({src, itemName, children}) => {
                     slide === 0 ? "text-[var(--disable-color)] pointer-events-none" : "text-[var(--white-bg-color)]"
                 )}
             />
-            <div className="w-[400px] h-[400px] flex items-center justify-center overflow-hidden rounded-[50px] shadow relative bg-[var(--white-color)] max-[400px]:w-[350px] max-[400px]:h-[350px] max-[350px]:w-[300px] max-[350px]:h-[300px]">
+            <div className="w-[400px] h-[400px] flex items-center justify-center overflow-hidden rounded-[50px] shadow relative bg-[var(--text-color)] max-[400px]:w-[350px] max-[400px]:h-[350px] max-[350px]:w-[300px] max-[350px]:h-[300px]">
                 {src.length > 0 ? (
                     src.map((img, index) => (
                         <img 
@@ -51,7 +51,11 @@ const ImageSlider: React.FC<imageSlider> = ({src, itemName, children}) => {
                         />
                     ))
                 ) : (
-                    <div>no image</div>
+                    <div
+                        className="text-[var(--white-color)] text-[2rem] font-bold"
+                    >
+                        no image
+                    </div>
                 )}
                 <FaCircleArrowRight
                     onClick={src.length === 0 || slide >= src.length - 1 ? undefined : handleNext}
@@ -88,7 +92,7 @@ const LandingImageSlider:  React.FC<imageSlider> = ({src, itemName, children}) =
             className="relative w-full max-w-[95%] mx-auto flex items-center justify-center"
             style={{ minHeight: 220 }}
         >
-            <div className="w-[400px] h-[400px] flex items-center justify-center overflow-hidden rounded-[50px] shadow relative bg-[var(--white-color)] max-[400px]:w-[350px] max-[400px]:h-[350px] max-[350px]:w-[300px] max-[350px]:h-[300px]">
+            <div className=" w-[400px] h-[400px] flex items-center justify-center overflow-hidden rounded-[50px] shadow relative bg-[var(--text-color)] max-[400px]:w-[350px] max-[400px]:h-[350px] max-[350px]:w-[300px] max-[350px]:h-[300px]">
                 {src.length > 0 ? (
                     src.map((img, index) => (
                         <img 
@@ -101,7 +105,11 @@ const LandingImageSlider:  React.FC<imageSlider> = ({src, itemName, children}) =
                         />
                     ))
                 ) : (
-                    <div>no image</div>
+                    <div
+                        className="text-[var(--white-color)] text-[2rem] font-bold"
+                    >
+                        no image
+                    </div>
                 )}
                 {children && (
                         <div className="absolute top-0 right-0 w-[100%] py-[6%] px-[5%]" dir="rtl">

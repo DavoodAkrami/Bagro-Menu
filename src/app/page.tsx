@@ -6,14 +6,20 @@ import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import { useMenu } from "@/contexts/MenuContext";
 
 const Skeleton = () => (
-    <div className="animate-pulse">
-        <div className="h-8 bg-gray-300 rounded w-1/3 mb-2" />
-        <div className="h-6 bg-gray-200 rounded w-2/3 mb-4" />
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 px-4">
-            {[...Array(2)].map((_, i) => (
-                <div key={i} className="h-32 bg-gray-200 rounded" />
-            ))}
-        </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4">
+        {[...Array(6)].map((_, i) => (
+            <div key={i} className="animate-pulse">
+                <div className="relative bg-gray-300 rounded-lg overflow-hidden aspect-[4/3]">
+                    <div className="absolute inset-0 bg-gray-300" />
+                    
+                    <div className="absolute top-0 left-0 right-0 flex w-[90%] mx-auto justify-between items-center p-4 gap-x-[0.8rem]">
+                        <div className="h-8 bg-gray-200 rounded w-24 max-md:h-7 max-[380px]:h-6" />
+                        
+                        <div className="h-8 bg-gray-200/30 px-4 py-2 rounded-lg backdrop-blur-sm max-md:h-7 max-[380px]:h-6 w-16" />
+                    </div>
+                </div>
+            </div>
+        ))}
     </div>
 );
 
@@ -57,7 +63,7 @@ const Home = () => {
                         {loading ? (
                             <Skeleton />
                         ) : (
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 px-4">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4">
                                 {menu.filter((item) => cat.id === item.category).map((item, index) => (
                                     <ItemCard key={index} item={item} onSelect={handleSelect} />
                                 ))}

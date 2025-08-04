@@ -22,11 +22,11 @@ const ItemCard: React.FC<ItemCardProps> = ({item, onSelect}) => {
             onClick={() => onSelect?.(item.id)}
         >
             <LandingImageSlider src={item.images} itemName={item.name}>
-                <div className="flex w-[90%] mx-auto justify-between items-center text-[1.8rem] text-[var(--white-color)]">
-                    <div className="font-[650] text-[2rem]">
+                <div className="flex w-[90%] mx-auto justify-between items-center text-[var(--white-color)] p-4 gap-x-[0.8rem]">
+                    <div className="font-bold text-[2rem] leading-tight drop-shadow-lg max-md:text-[1.8rem] max-[380px]:text-[1.4rem]">
                         {item.name}
                     </div>
-                    <div className="text-[2rem]">
+                    <div className="text-[2rem] font-semibold bg-black/30 px-4 py-2 rounded-lg backdrop-blur-sm drop-shadow-lg max-md:text-[1.8rem] max-[380px]:text-[1.4rem]">
                         {item.price}
                     </div>
                 </div>
