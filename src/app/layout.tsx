@@ -1,47 +1,23 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Head from "next/head";
-import Header from "@/Components/Header";
-import LogoOverlay from "@/Components/LogoOverlay";
-import { MenuProvider } from "@/contexts/MenuContext";
-import Footer from "@/Components/Footer";
+import type { Metadata, Viewport } from 'next'
+import localFont from 'next/font/local'
+import '@/app/globals.css'
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const manrope = localFont({ src: './fonts/manrope.woff2', variable: '--font-manrope', display: 'swap' })
+const priceFont = localFont({ src: './fonts/noto-sans-arabic-medium.ttf', variable: '--font-prices', display: 'swap', weight: '500' })
+const vazirmatn = localFont({ src: './fonts/vazirmatn.woff2', variable: '--font-vazirmatn', display: 'swap' })
 
 export const metadata: Metadata = {
-  title: "Bagro",
-  description: "Bagro's Restaurant Menu Website",
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <Head>
-        <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
-      </Head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <MenuProvider>
-          <LogoOverlay />
-          <Header />
-          {children}
-          <Footer />
-        </MenuProvider>
-      </body>
-    </html>
-  );
+  title: 'باگرو بیسترو | منو',
+  description: 'منوی باگرو بیسترو در شیراز؛ صبحانه، قهوه، پیتزا، پاستا، نشانی و تماس.',
+  robots: { index: false, follow: false },
 }
+
+export const viewport: Viewport = { themeColor: '#c9c3ae', width: 'device-width', initialScale: 1 }
+
+const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => (
+  <html lang="fa" dir="rtl" className={`${manrope.variable} ${vazirmatn.variable} ${priceFont.variable}`}>
+    <body>{children}</body>
+  </html>
+)
+
+export default RootLayout

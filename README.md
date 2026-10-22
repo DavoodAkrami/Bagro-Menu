@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bagro Bistro menu
 
-## Getting Started
+A mobile-first Persian and English menu built with Next.js App Router, React, TypeScript, and self-hosted Manrope, Vazirmatn, and Noto Sans Arabic fonts.
 
-First, run the development server:
+## Run locally
 
-```bash
+```sh
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production and checks
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sh
+npm run lint
+npm run typecheck
+npm run build
+npm run start
+```
 
-## Learn More
+## Structure
 
-To learn more about Next.js, take a look at the following resources:
+- `src/data/menu.ts`: the bilingual menu, source prices, and category sheets.
+- `src/components/bagro-experience.tsx`: logo reveal, brand opening, language switching, navigation, and location.
+- `src/components/menu-explorer.tsx`: continuous menu with category jump links, search, dietary filtering, pointer previews, and original sheets.
+- `src/components/scroll-ticker.tsx`: continuous text motion that accelerates with scroll velocity, with pause and reduced-motion support.
+- `src/components/brand.tsx`: Bagro’s authentic mark extracted visually from its original menu cover.
+- `src/app/globals.css`: visual tokens, responsive layout, and motion.
+- `public/menu/`: original menu sheets from Bagro's website.
+- `public/images/`: photographs of the actual restaurant and food.
+- `docs/design-direction.md`: research, palette decisions, asset sources, and content boundaries.
+- `agent.md` and `AGENTS.md`: project and Next.js agent instructions.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The menu includes 129 entries in 11 categories. Source prices retain their printed format; missing and zero prices are shown as requiring confirmation. Ingredients are condensed translations, so the original source sheets remain available within the menu.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The photographs are credited visitor images used for the local prototype. Confirm permission or replace them with owned photography before publishing. Robots indexing is disabled for the prototype.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Motion follows native scrolling and respects reduced-motion preferences. Pointer previews are restricted to fine pointers; every category is directly accessible by touch and keyboard.
